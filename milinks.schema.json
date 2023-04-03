@@ -3,8 +3,20 @@
   "$schema": "http://json-schema.org/draft-07/schema#",
   "title": "MiLinks schema",
   "description": "A schema to validate MiLinks configuration",
-  "required": ["links"],
-  "$ref": "#/definitions/linkGroup",
+
+  "type": "object",
+  "required": ["items"],
+  "properties": {
+    "items": {
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/linkOrGroup"
+      },
+      "uniqueItems": true
+    }
+  },
+  "additionalProperties": false,
+
   "definitions": {
     "linkOrGroup": {
       "oneOf": [
@@ -27,7 +39,8 @@
         "description": {
           "type": "string"
         }
-      }
+      },
+      "additionalProperties": false
     },
     "linkGroup": {
       "title": "Link Group",
@@ -39,7 +52,6 @@
           "type": "string",
           "description": "A descriptive name of the link group"
         },
-
         "items": {
           "type": "array",
           "items": {
@@ -47,7 +59,8 @@
           },
           "uniqueItems": true
         }
-      }
+      },
+      "additionalProperties": false
     }
   }
 }
