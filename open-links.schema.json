@@ -1,0 +1,53 @@
+{
+  "$id": "https://miro.com/mi-links.schema.json",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "MiLinks schema",
+  "description": "A schema to validate MiLinks configuration",
+  "required": ["links"],
+  "$ref": "#/definitions/linkGroup",
+  "definitions": {
+    "linkOrGroup": {
+      "oneOf": [
+        { "$ref": "#/definitions/link" },
+        { "$ref": "#/definitions/linkGroup" }
+      ]
+    },
+    "link": {
+      "title": "Link",
+      "description": "A web link",
+      "required": ["url", "title"],
+      "type": "object",
+      "properties": {
+        "url": {
+          "type": "string"
+        },
+        "title": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        }
+      }
+    },
+    "linkGroup": {
+      "title": "Link Group",
+      "description": "A group of web link",
+      "type": "object",
+      "required": ["items"],
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "A descriptive name of the link group"
+        },
+
+        "items": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/linkOrGroup"
+          },
+          "uniqueItems": true
+        }
+      }
+    }
+  }
+}
