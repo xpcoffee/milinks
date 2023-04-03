@@ -2,10 +2,10 @@
   "name": "milinks",
   "version": "1.0.0",
   "description": "A basic format for defining link sets.",
-  "main": "index.js",
-  "types": "./lib/milinks.d.ts",
+  "main": "",
+  "types": "./milinks.d.ts",
   "scripts": {
-    "build": "json2ts milinks.schema.json > ./lib/milinks.d.ts"
+    "build": "json2ts milinks.schema.json > ./milinks.d.ts"
   },
   "keywords": [
     "milinks",
