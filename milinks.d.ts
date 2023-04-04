@@ -11,12 +11,18 @@ export type LinkOrGroup = Link | LinkGroup;
  * A schema to validate MiLinks configuration
  */
 export interface MiLinksSchema {
+  type: "group";
+  /**
+   * A descriptive name of the link group
+   */
+  name: string;
   items: LinkOrGroup[];
 }
 /**
  * A web link
  */
 export interface Link {
+  type: "link";
   url: string;
   title: string;
   description?: string;
@@ -25,9 +31,10 @@ export interface Link {
  * A group of web link
  */
 export interface LinkGroup {
+  type: "group";
   /**
    * A descriptive name of the link group
    */
-  name?: string;
+  name: string;
   items: LinkOrGroup[];
 }
