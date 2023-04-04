@@ -5,7 +5,7 @@
  * and run json-schema-to-typescript to regenerate this file.
  */
 
-export type LinkOrGroup = Link | LinkGroup;
+export type LinkOrGroup = Link | LinkGroup | LinkGroupRef;
 
 /**
  * A schema to validate MiLinks configuration
@@ -37,4 +37,19 @@ export interface LinkGroup {
    */
   name: string;
   items: LinkOrGroup[];
+}
+/**
+ * A link group reference, either to a local or remote group
+ */
+export interface LinkGroupRef {
+  type: "groupRef";
+  /**
+   * A URL to the link group. Accepts file:// URLs for local group references.
+   */
+  url: string;
+  /**
+   * A descriptive name to override the link group's original name.
+   */
+  alias?: string;
+  [k: string]: unknown;
 }

@@ -29,7 +29,8 @@
     "linkOrGroup": {
       "oneOf": [
         { "$ref": "#/definitions/link" },
-        { "$ref": "#/definitions/linkGroup" }
+        { "$ref": "#/definitions/linkGroup" },
+        { "$ref": "#/definitions/linkGroupRef" }
       ]
     },
     "link": {
