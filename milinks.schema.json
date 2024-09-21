@@ -3,7 +3,6 @@
   "$schema": "http://json-schema.org/draft-07/schema#",
   "title": "MiLinks schema",
   "description": "A schema to validate MiLinks configuration",
-
   "type": "object",
   "required": ["type", "items", "name"],
   "properties": {
@@ -36,9 +35,13 @@
     "link": {
       "title": "Link",
       "description": "A web link",
-      "required": ["type", "url", "title"],
+      "required": ["id", "type", "url", "title"],
       "type": "object",
       "properties": {
+        "id": {
+          "type": "string",
+          "description": "An ID to uniquely identify this link"
+        },
         "type": {
           "type": "string",
           "const": "link"
@@ -59,15 +62,19 @@
       "title": "Link Group",
       "description": "A group of web link",
       "type": "object",
-      "required": ["type", "items", "name"],
+      "required": ["id", "type", "items", "name"],
       "properties": {
         "type": {
           "type": "string",
           "const": "group"
         },
+        "id": {
+          "type": "string",
+          "description": "An ID to uniquely identify this link group"
+        },
         "name": {
           "type": "string",
-          "description": "A descriptive name of the link group"
+          "description": "A descriptive name for the link group"
         },
         "items": {
           "type": "array",
@@ -80,11 +87,15 @@
       "additionalProperties": false
     },
     "linkGroupRef": {
-      "title": "Link Group Ref",
+      "title": "Link Group Reference",
       "description": "A link group reference, either to a local or remote group",
       "type": "object",
-      "required": ["type", "url"],
+      "required": ["id", "type", "url"],
       "properties": {
+        "id": {
+          "type": "string",
+          "descriptive": "An ID to uniquely identify this link group reference"
+        },
         "type": {
           "type": "string",
           "const": "groupRef"
