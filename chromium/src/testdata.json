@@ -1,0 +1,16 @@
+{
+    "type": "group",
+    "name": "MiLinks ecosystem",
+    "items": [
+        {
+            "type": "link",
+            "title": "MiLinks schema",
+            "url": "https://github.com/xpcoffee/milinks"
+        },
+        {
+            "type": "link",
+            "title": "MiLinks Alfred extension",
+            "url": "https://github.com/xpcoffee/milinks-alfred"
+        }
+    ]
+}
